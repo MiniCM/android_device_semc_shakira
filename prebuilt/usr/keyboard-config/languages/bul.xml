@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ *********************************************************************
+ *  ____                      _____      _                           *
+ * / ___|  ___  _ __  _   _  | ____|_ __(_) ___ ___ ___  ___  _ __   *
+ * \___ \ / _ \| '_ \| | | | |  _| | '__| |/ __/ __/ __|/ _ \| '_ \  *
+ *  ___) | (_) | | | | |_| | | |___| |  | | (__\__ \__ \ (_) | | | | *
+ * |____/ \___/|_| |_|\__, | |_____|_|  |_|\___|___/___/\___/|_| |_| *
+ *                    |___/                                          *
+ *                                                                   *
+ *********************************************************************
+ * Copyright 2010 Sony Ericsson Mobile Communications AB.            *
+ * All rights, including trade secret rights, reserved.              *
+ *********************************************************************
+-->
+<!--
+    Language name        : Bulgarian
+             code        : bul
+             visual code : bul
+             script      : cyrillic
+-->
+<language script="cyrillic" lastCandidateScript="latin">
+  <primary normal="а"/>
+  <primary normal="б"/>
+  <primary normal="в"/>
+  <primary normal="г">
+    <candidate normal="ґ"/>
+  </primary>
+  <primary normal="д"/>
+  <primary normal="е">
+    <candidate normal="ё"/>
+  </primary>
+  <primary normal="з"/>
+  <primary normal="и">
+    <candidate normal="і"/>
+    <candidate normal="ї"/>
+  </primary>
+  <primary normal="й"/>
+  <primary normal="к"/>
+  <primary normal="л"/>
+  <primary normal="м"/>
+  <primary normal="н"/>
+  <primary normal="о"/>
+  <primary normal="п"/>
+  <primary normal="р"/>
+  <primary normal="с"/>
+  <primary normal="т"/>
+  <primary normal="у"/>
+  <primary normal="ф"/>
+  <primary normal="ц"/>
+  <primary normal="ч"/>
+  <primary normal="ш"/>
+  <primary normal="щ"/>
+  <primary normal="ы"/>
+  <primary normal="э">
+    <candidate normal="є"/>
+  </primary>
+  <primary normal="ю"/>
+  <primary normal="я"/>
+  <primary normal="А"/>
+  <primary normal="Б"/>
+  <primary normal="В"/>
+  <primary normal="Г">
+    <candidate normal="Ґ"/>
+  </primary>
+  <primary normal="Д"/>
+  <primary normal="Е">
+    <candidate normal="Ё"/>
+  </primary>
+  <primary normal="З"/>
+  <primary normal="И">
+    <candidate normal="І"/>
+    <candidate normal="Ї"/>
+  </primary>
+  <primary normal="Й"/>
+  <primary normal="К"/>
+  <primary normal="Л"/>
+  <primary normal="М"/>
+  <primary normal="Н"/>
+  <primary normal="О"/>
+  <primary normal="П"/>
+  <primary normal="Р"/>
+  <primary normal="С"/>
+  <primary normal="Т"/>
+  <primary normal="У"/>
+  <primary normal="Ф"/>
+  <primary normal="Ц"/>
+  <primary normal="Ч"/>
+  <primary normal="Ш"/>
+  <primary normal="Щ"/>
+  <primary normal="Ы"/>
+  <primary normal="Э">
+    <candidate normal="Є"/>
+  </primary>
+  <primary normal="Ю"/>
+  <primary normal="Я"/>
+</language>

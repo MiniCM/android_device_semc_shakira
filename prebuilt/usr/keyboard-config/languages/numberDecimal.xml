@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<language code="numberDecimal" script="latin" charactershardcodedtoposition="true">
+  <primary normal="1" position="primaryNormal"/>
+  <primary normal="2" position="primaryNormal"/>
+  <primary normal="3" position="primaryNormal"/>
+  <primary normal="4" position="primaryNormal"/>
+  <primary normal="5" position="primaryNormal"/>
+  <primary normal="6" position="primaryNormal"/>
+  <primary normal="7" position="primaryNormal"/>
+  <primary normal="8" position="primaryNormal"/>
+  <primary normal="9" position="primaryNormal"/>
+  <primary normal="0" position="primaryNormal"/>
+  <primary normal="." position="primaryNormal"/>
+  <primary normal="-" position="primaryNormal"/>
+  <primary normal="+" position="primaryNormal"/>
+</language>

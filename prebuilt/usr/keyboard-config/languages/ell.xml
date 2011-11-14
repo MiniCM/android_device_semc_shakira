@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ *********************************************************************
+ *  ____                      _____      _                           *
+ * / ___|  ___  _ __  _   _  | ____|_ __(_) ___ ___ ___  ___  _ __   *
+ * \___ \ / _ \| '_ \| | | | |  _| | '__| |/ __/ __/ __|/ _ \| '_ \  *
+ *  ___) | (_) | | | | |_| | | |___| |  | | (__\__ \__ \ (_) | | | | *
+ * |____/ \___/|_| |_|\__, | |_____|_|  |_|\___|___/___/\___/|_| |_| *
+ *                    |___/                                          *
+ *                                                                   *
+ *********************************************************************
+ * Copyright 2010 Sony Ericsson Mobile Communications AB.            *
+ * All rights, including trade secret rights, reserved.              *
+ *********************************************************************
+-->
+<!--
+    Language name        : Greek
+             code        : ell
+             visual code : ell
+             script      : greek
+-->
+<language script="greek">
+  <primary normal="α">
+    <candidate normal="ά"/>
+  </primary>
+  <primary normal="β"/>
+  <primary normal="γ"/>
+  <primary normal="δ"/>
+  <primary normal="ε">
+    <candidate normal="έ"/>
+  </primary>
+  <primary normal="ζ"/>
+  <primary normal="η">
+    <candidate normal="ή"/>
+  </primary>
+  <primary normal="θ"/>
+  <primary normal="ι">
+    <candidate normal="ί"/>
+    <candidate normal="ϊ"/>
+    <candidate normal="ΐ"/>
+  </primary>
+  <primary normal="κ"/>
+  <primary normal="λ"/>
+  <primary normal="μ"/>
+  <primary normal="ν"/>
+  <primary normal="ξ"/>
+  <primary normal="ο">
+    <candidate normal="ό"/>
+  </primary>
+  <primary normal="π"/>
+  <primary normal="ρ"/>
+  <primary normal="ς"/>
+  <primary normal="σ"/>
+  <primary normal="τ"/>
+  <primary normal="υ">
+    <candidate normal="ύ"/>
+    <candidate normal="ϋ"/>
+    <candidate normal="ΰ"/>
+  </primary>
+  <primary normal="φ"/>
+  <primary normal="χ"/>
+  <primary normal="ψ"/>
+  <primary normal="ω">
+    <candidate normal="ώ"/>
+  </primary>
+  <primary normal="Α">
+    <candidate normal="Ά"/>
+  </primary>
+  <primary normal="Β"/>
+  <primary normal="Γ"/>
+  <primary normal="Δ"/>
+  <primary normal="Ε">
+    <candidate normal="Έ"/>
+  </primary>
+  <primary normal="Ζ"/>
+  <primary normal="Η">
+    <candidate normal="Ή"/>
+  </primary>
+  <primary normal="Θ"/>
+  <primary normal="Ι">
+    <candidate normal="Ί"/>
+    <candidate normal="Ϊ"/>
+  </primary>
+  <primary normal="Κ"/>
+  <primary normal="Λ"/>
+  <primary normal="Μ"/>
+  <primary normal="Ν"/>
+  <primary normal="Ξ"/>
+  <primary normal="Ο">
+    <candidate normal="Ό"/>
+  </primary>
+  <primary normal="Π"/>
+  <primary normal="Ρ"/>
+  <primary normal="ς"/>
+  <primary normal="Σ"/>
+  <primary normal="Τ"/>
+  <primary normal="Υ">
+    <candidate normal="Ύ"/>
+    <candidate normal="Ϋ"/>
+  </primary>
+  <primary normal="Φ"/>
+  <primary normal="Χ"/>
+  <primary normal="Ψ"/>
+  <primary normal="Ω">
+    <candidate normal="Ώ"/>
+  </primary>
+</language>

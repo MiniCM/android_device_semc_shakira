@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ *********************************************************************
+ *  ____                      _____      _                           *
+ * / ___|  ___  _ __  _   _  | ____|_ __(_) ___ ___ ___  ___  _ __   *
+ * \___ \ / _ \| '_ \| | | | |  _| | '__| |/ __/ __/ __|/ _ \| '_ \  *
+ *  ___) | (_) | | | | |_| | | |___| |  | | (__\__ \__ \ (_) | | | | *
+ * |____/ \___/|_| |_|\__, | |_____|_|  |_|\___|___/___/\___/|_| |_| *
+ *                    |___/                                          *
+ *                                                                   *
+ *********************************************************************
+ * Copyright 2010 Sony Ericsson Mobile Communications AB.            *
+ * All rights, including trade secret rights, reserved.              *
+ *********************************************************************
+-->
+<!--
+    Language name        : Turkish
+             code        : tur
+             visual code : tur
+             script      : latin
+-->
+<language script="latin">
+  <primary normal="a">
+    <candidate normal="â"/>
+    <candidate normal="ä"/>
+    <candidate normal="á"/>
+    <candidate normal="à"/>
+    <candidate normal="æ"/>
+    <candidate normal="ã"/>
+    <candidate normal="ą"/>
+    <candidate normal="å"/>
+    <candidate normal="ā"/>
+    <candidate normal="ă"/>
+  </primary>
+  <primary normal="b"/>
+  <primary normal="c">
+    <candidate normal="ç"/>
+    <candidate normal="č"/>
+    <candidate normal="ć"/>
+  </primary>
+  <primary normal="d">
+    <candidate normal="đ"/>
+    <candidate normal="ď"/>
+    <candidate normal="ð"/>
+  </primary>
+  <primary normal="e">
+    <candidate normal="é"/>
+    <candidate normal="è"/>
+    <candidate normal="ê"/>
+    <candidate normal="ě"/>
+    <candidate normal="ë"/>
+    <candidate normal="ę"/>
+    <candidate normal="ē"/>
+    <candidate normal="ė"/>
+    <candidate normal="ẹ"/>
+  </primary>
+  <primary normal="f"/>
+  <primary normal="g">
+    <candidate normal="ğ"/>
+    <candidate normal="ģ"/>
+  </primary>
+  <primary normal="h"/>
+  <primary normal="i">
+    <candidate normal="ı"/>
+    <candidate normal="î"/>
+    <candidate normal="í"/>
+    <candidate normal="ï"/>
+    <candidate normal="ì"/>
+    <candidate normal="ī"/>
+    <candidate normal="į"/>
+    <candidate normal="ị"/>
+  </primary>
+  <primary normal="j"/>
+  <primary normal="k">
+    <candidate normal="ķ"/>
+  </primary>
+  <primary normal="l">
+    <candidate normal="ĺ"/>
+    <candidate normal="ľ"/>
+    <candidate normal="ł"/>
+    <candidate normal="ļ"/>
+  </primary>
+  <primary normal="m"/>
+  <primary normal="n">
+    <candidate normal="ñ"/>
+    <candidate normal="ň"/>
+    <candidate normal="ń"/>
+    <candidate normal="ņ"/>
+  </primary>
+  <primary normal="o">
+    <candidate normal="ö"/>
+    <candidate normal="ó"/>
+    <candidate normal="ô"/>
+    <candidate normal="ò"/>
+    <candidate normal="ø"/>
+    <candidate normal="õ"/>
+    <candidate normal="ő"/>
+    <candidate normal="ọ"/>
+    <candidate normal="ơ"/>
+  </primary>
+  <primary normal="p"/>
+  <primary normal="q"/>
+  <primary normal="r">
+    <candidate normal="ř"/>
+    <candidate normal="ŕ"/>
+    <candidate normal="ŗ"/>
+  </primary>
+  <primary normal="s">
+    <candidate normal="ş"/>
+    <candidate normal="š"/>
+    <candidate normal="ś"/>
+    <candidate normal="ß"/>
+  </primary>
+  <primary normal="t">
+    <candidate normal="þ"/>
+    <candidate normal="ť"/>
+    <candidate normal="ţ"/>
+  </primary>
+  <primary normal="u">
+    <candidate normal="ü"/>
+    <candidate normal="û"/>
+    <candidate normal="ú"/>
+    <candidate normal="ù"/>
+    <candidate normal="ů"/>
+    <candidate normal="ū"/>
+    <candidate normal="ų"/>
+    <candidate normal="ű"/>
+    <candidate normal="ụ"/>
+    <candidate normal="ư"/>
+  </primary>
+  <primary normal="v"/>
+  <primary normal="w"/>
+  <primary normal="x"/>
+  <primary normal="y">
+    <candidate normal="ý"/>
+  </primary>
+  <primary normal="z">
+    <candidate normal="ž"/>
+    <candidate normal="ź"/>
+    <candidate normal="ż"/>
+  </primary>
+  <primary normal="A">
+    <candidate normal="Â"/>
+    <candidate normal="Ä"/>
+    <candidate normal="Á"/>
+    <candidate normal="À"/>
+    <candidate normal="Æ"/>
+    <candidate normal="Ã"/>
+    <candidate normal="Ą"/>
+    <candidate normal="Å"/>
+    <candidate normal="Ā"/>
+    <candidate normal="Ă"/>
+  </primary>
+  <primary normal="B"/>
+  <primary normal="C">
+    <candidate normal="Ç"/>
+    <candidate normal="Č"/>
+    <candidate normal="Ć"/>
+  </primary>
+  <primary normal="D">
+    <candidate normal="Đ"/>
+    <candidate normal="Ď"/>
+    <candidate normal="Ð"/>
+  </primary>
+  <primary normal="E">
+    <candidate normal="É"/>
+    <candidate normal="È"/>
+    <candidate normal="Ê"/>
+    <candidate normal="Ě"/>
+    <candidate normal="Ë"/>
+    <candidate normal="Ę"/>
+    <candidate normal="Ē"/>
+    <candidate normal="Ė"/>
+    <candidate normal="Ẹ"/>
+  </primary>
+  <primary normal="F"/>
+  <primary normal="G">
+    <candidate normal="Ğ"/>
+    <candidate normal="Ģ"/>
+  </primary>
+  <primary normal="H"/>
+  <primary normal="I">
+    <candidate normal="İ"/>
+    <candidate normal="Î"/>
+    <candidate normal="Í"/>
+    <candidate normal="Ï"/>
+    <candidate normal="Ì"/>
+    <candidate normal="Ī"/>
+    <candidate normal="Į"/>
+    <candidate normal="Ị"/>
+  </primary>
+  <primary normal="J"/>
+  <primary normal="K">
+    <candidate normal="Ķ"/>
+  </primary>
+  <primary normal="L">
+    <candidate normal="Ĺ"/>
+    <candidate normal="Ľ"/>
+    <candidate normal="Ł"/>
+    <candidate normal="Ļ"/>
+  </primary>
+  <primary normal="M"/>
+  <primary normal="N">
+    <candidate normal="Ñ"/>
+    <candidate normal="Ň"/>
+    <candidate normal="Ń"/>
+    <candidate normal="Ņ"/>
+  </primary>
+  <primary normal="O">
+    <candidate normal="Ö"/>
+    <candidate normal="Ó"/>
+    <candidate normal="Ô"/>
+    <candidate normal="Ò"/>
+    <candidate normal="Ø"/>
+    <candidate normal="Õ"/>
+    <candidate normal="Ő"/>
+    <candidate normal="Ọ"/>
+    <candidate normal="Ơ"/>
+  </primary>
+  <primary normal="P"/>
+  <primary normal="Q"/>
+  <primary normal="R">
+    <candidate normal="Ř"/>
+    <candidate normal="Ŕ"/>
+    <candidate normal="Ŗ"/>
+  </primary>
+  <primary normal="S">
+    <candidate normal="Ş"/>
+    <candidate normal="Š"/>
+    <candidate normal="Ś"/>
+    <candidate normal="ß"/>
+  </primary>
+  <primary normal="T">
+    <candidate normal="Þ"/>
+    <candidate normal="Ť"/>
+    <candidate normal="Ţ"/>
+  </primary>
+  <primary normal="U">
+    <candidate normal="Ü"/>
+    <candidate normal="Û"/>
+    <candidate normal="Ú"/>
+    <candidate normal="Ù"/>
+    <candidate normal="Ů"/>
+    <candidate normal="Ū"/>
+    <candidate normal="Ų"/>
+    <candidate normal="Ű"/>
+    <candidate normal="Ụ"/>
+    <candidate normal="Ư"/>
+  </primary>
+  <primary normal="V"/>
+  <primary normal="W"/>
+  <primary normal="X"/>
+  <primary normal="Y">
+    <candidate normal="Ý"/>
+  </primary>
+  <primary normal="Z">
+    <candidate normal="Ž"/>
+    <candidate normal="Ź"/>
+    <candidate normal="Ż"/>
+  </primary>
+  <primary normal="å"/>
+  <primary normal="ä">
+    <alias normal="æ"/>
+    <candidate normal="æ"/>
+  </primary>
+  <primary normal="ö">
+    <alias normal="ø"/>
+    <candidate normal="ø"/>
+    <candidate normal="œ"/>
+  </primary>
+  <primary normal="æ">
+    <alias normal="ä"/>
+    <candidate normal="ä"/>
+  </primary>
+  <primary normal="ø">
+    <alias normal="ö"/>
+    <candidate normal="ö"/>
+    <candidate normal="œ"/>
+  </primary>
+  <primary normal="ç"/>
+  <primary normal="Å"/>
+  <primary normal="Ä">
+    <alias normal="Æ"/>
+    <candidate normal="Æ"/>
+  </primary>
+  <primary normal="Ö">
+    <alias normal="Ø"/>
+    <candidate normal="Ø"/>
+    <candidate normal="Œ"/>
+  </primary>
+  <primary normal="Æ">
+    <alias normal="Ä"/>
+    <candidate normal="Ä"/>
+  </primary>
+  <primary normal="Ø">
+    <alias normal="Ö"/>
+    <candidate normal="Ö"/>
+    <candidate normal="Œ"/>
+  </primary>
+  <primary normal="Ç"/>
+</language>
