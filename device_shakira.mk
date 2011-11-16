@@ -49,7 +49,6 @@ PRODUCT_PACKAGES += \
 
 # Extra packages
 PRODUCT_PACKAGES += \
-    Torch \
     ADWLauncher
 
 PRODUCT_COPY_FILES += \
@@ -97,7 +96,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # density in DPI of the LCD of this board. This is used to scale the UI
 # appropriately. If this property is not defined, the default value is 160 dpi. 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=120 \
+    ro.sf.lcd_density=160 \
     persist.sys.use_16bpp_alpha=1
 
 # Default network type
