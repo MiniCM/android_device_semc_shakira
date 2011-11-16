@@ -14,4 +14,8 @@
 
     <!-- Whether or not to display search button settings -->
     <bool name="has_search_button">false</bool>
+
+    <!-- Undervolting and overclocking kernel modules -->
+    <string name="undervolting_module">x8uv.ko</string>
+    <string name="overclocking_module">x8oc.ko</string>
 </resources>
