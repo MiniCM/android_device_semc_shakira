@@ -35,10 +35,6 @@ echo 4700 > $dev/spotlight::boost_mv # spotlight boost voltage
 echo 480 > $dev/cmaflash::current_ma # camera flash current
 echo 5000 > $dev/cmaflash::boost_mv # camera flash  voltage
 
-# Symlinks for compass
-ln -s /dev/akm8973_aot /dev/akm8975_aot
-ln -s /dev/akm8973_daemon /dev/akm8975_daemon
-
 mount -o rw,remount -t yaffs2 /dev/block/mtdblock0 /system
 chmod u+s /system/bin/charger
 mount -o ro,remount -t yaffs2 /dev/block/mtdblock0 /system

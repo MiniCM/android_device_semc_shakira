@@ -38,7 +38,7 @@ WIFI_EXT_MODULE_NAME := sdio
 
 #BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 #TARGET_USES_OLD_LIBSENSORS_HAL:=true
-
+BOARD_CAMERA_NO_AUTOFOCUS:=true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := true
 #BOARD_UMS_LUNFILE := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 BOARD_CUSTOM_BLUEDROID := ../../../device/semc/shakira/bluedroid.c
@@ -84,7 +84,7 @@ TARGET_NO_RADIOIMAGE := true
 
 BUILD_WITHOUT_PV := true
 
-WITH_DEXPREOPT := false
+WITH_DEXPREOPT := true
 
 BOARD_CUSTOM_BOOTIMG_MK := device/semc/msm7x27-common/custombootimg.mk
 TARGET_RECOVERY_PRE_COMMAND := "mkdir /cache/recovery;touch /cache/recovery/boot;sync;"

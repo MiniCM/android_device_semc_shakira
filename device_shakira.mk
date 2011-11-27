@@ -79,6 +79,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.hsxpa=2 \
     ro.ril.gprsclass=10 \
     ro.ril.hsupa.category=5 \
+    ro.ril.disable.power.collapse=1 \
     wifi.interface=tiwlan0
 
 # Time between scans in seconds. Keep it high to minimize battery drain.
@@ -102,7 +103,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Default network type
 # 0 => WCDMA Preferred.
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.default_network=0
+    ro.telephony.default_network=0 \
+    ro.telephony.call_ring.delay=0
 
 # media configuration xml file
 PRODUCT_COPY_FILES += \
@@ -138,7 +140,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-meta=true \
     media.stagefright.enable-scan=true \
     media.stagefright.enable-http=true \
-    keyguard.no_require_sim=true
+    keyguard.no_require_sim=true \
+    windowsmgr.max_events_per_sec=150
 
 # Increase dalvik heap size to prevent excessive GC with lots of apps installed.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -152,14 +155,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     
 # Use the semc-msm7x27 RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=semc-msm7x27
+    ro.telephony.ril_class=semc-msm7x27 \
+    ro.telephony.ril_skip_locked=true
 
 # Workaround for usb disconnect kickback
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.tethering.kb_disconnect=1
 
 # Theme Selection
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    persist.sys.themeId=MiniCM7 \
-#    persist.sys.themePackageName=com.darkdog.theme.minicm7
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.themeId=MiniCM7 \
+    persist.sys.themePackageName=com.darkdog.theme.minicm7
 
