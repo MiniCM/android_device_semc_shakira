@@ -141,7 +141,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-scan=true \
     media.stagefright.enable-http=true \
     keyguard.no_require_sim=true \
-    windowsmgr.max_events_per_sec=150
+    windowsmgr.max_events_per_sec=150 \
+    ro.opengles.version=131072
 
 # Increase dalvik heap size to prevent excessive GC with lots of apps installed.
 PRODUCT_PROPERTY_OVERRIDES += \

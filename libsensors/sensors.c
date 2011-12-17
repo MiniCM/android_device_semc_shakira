@@ -25,7 +25,7 @@
  */
 
 /*
- * the AK8973 has a 8-bit ADC but the firmware seems to average 16 samples,
+ * the AK8975 has a 8-bit ADC but the firmware seems to average 16 samples,
  * or at least makes its calibration on 12-bits values. This increases the
  * resolution by 4 bits.
  */
@@ -75,7 +75,7 @@ const struct sensors_module_t HAL_MODULE_INFO_SYM = {
         .version_major = 1,
         .version_minor = 0,
         .id = SENSORS_HARDWARE_MODULE_ID,
-        .name = "AK8975 & APDS9700 Sensors Module",
+        .name = "AK8975A & APDS9700 Sensors Module",
         .author = "The Android Open Source Project",
         .methods = &sensors_module_methods,
     },
