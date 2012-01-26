@@ -41,6 +41,7 @@ PRODUCT_PACKAGES += \
 
 # Live wallpaper packages
 PRODUCT_PACKAGES += \
+    CMWallpapers \
     LiveWallpapersPicker \
     librs_jni \
     LiveWallpapers \
