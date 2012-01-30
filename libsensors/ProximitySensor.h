@@ -21,7 +21,7 @@
 #include <errno.h>
 #include <sys/cdefs.h>
 #include <sys/types.h>
-#include <pthread.h>
+
 #include "nusensors.h"
 #include "SensorBase.h"
 #include "InputEventReader.h"
@@ -33,21 +33,19 @@ struct input_event;
 class ProximitySensor : public SensorBase {
     int mEnabled;
     InputEventCircularReader mInputReader;
+    sensors_event_t mPendingEvent;
+    bool mHasPendingEvent;
+
     int setInitialState();
-    
+    float indexToValue(size_t index) const;
+
 public:
             ProximitySensor();
     virtual ~ProximitySensor();
     virtual int readEvents(sensors_event_t* data, int count);
     virtual bool hasPendingEvents() const;
     virtual int enable(int32_t handle, int enabled);
-    pthread_t poll_thread;
-    sensors_event_t mPendingEvent;
-    bool mHasPendingEvent;
-    float indexToValue(size_t index) const;
 };
-
-void * polling_thread_func(void *threadid);
 
 /*****************************************************************************/
 
