@@ -169,3 +169,35 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.themeId=MiniCM7 \
     persist.sys.themePackageName=com.darkdog.theme.minicm7
 
+## Extra prebuilt binaries
+PRODUCT_COPY_FILES += \
+    device/semc/shakira/prebuilt/hw_config.sh:system/etc/hw_config.sh \
+    device/semc/shakira/prebuilt/FmRxService.apk:system/app/FmRxService.apk \
+    device/semc/shakira/prebuilt/Radio.apk:system/app/Radio.apk \
+    device/semc/shakira/prebuilt/SystemConnector.apk:system/app/SystemConnector.apk \
+    device/semc/shakira/prebuilt/com.sonyericsson.suquashi.jar:system/framework/com.sonyericsson.suquashi.jar \
+    device/semc/shakira/prebuilt/fmreceiverif.jar:system/framework/fmreceiverif.jar \
+    device/semc/shakira/prebuilt/SemcSmfmf.jar:system/framework/SemcSmfmf.jar \
+    device/semc/shakira/prebuilt/vold.fstab:system/etc/vold.fstab \
+    device/semc/shakira/placeholder:system/lib/modules/.placeholder
+   
+## Themes
+PRODUCT_COPY_FILES += \
+    device/semc/shakira/prebuilt/MiniCM7.apk:system/app/MiniCM7.apk \
+    device/semc/shakira/prebuilt/OrangeHaze.apk:system/app/OrangeHaze.apk \
+    device/semc/shakira/prebuilt/minicm.png:system/usr/res/minicm.png
+
+## A2SD and extra init files
+PRODUCT_COPY_FILES += \
+    device/semc/shakira/prebuilt/a2sd:system/bin/a2sd \
+    device/semc/shakira/prebuilt/10apps2sd:system/etc/init.d/10apps2sd \
+    device/semc/shakira/prebuilt/05mountext:system/etc/init.d/05mountext \
+    device/semc/shakira/prebuilt/04modules:system/etc/init.d/04modules \
+    device/semc/shakira/prebuilt/06minicm:system/etc/init.d/06minicm
+    
+## Extra Cyanogen vendor files
+PRODUCT_COPY_FILES += \
+    vendor/cyanogen/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+    
+    
+

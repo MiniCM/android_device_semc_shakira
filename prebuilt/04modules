@@ -1,0 +1,11 @@
+#!/system/bin/sh
+# Workaround for rmmod
+# Author: nobodyAtall @ xda
+mount -o remount,rw /dev/block/mtdblock0 /system
+KERNEL=`/system/xbin/uname -r`
+DIRECTORY=/system/modules/$KERNEL
+if [ ! -d "$DIRECTORY" ]; then
+	mkdir -p /system/modules
+	/system/xbin/ln -s /system/lib/modules/ $DIRECTORY
+fi
+

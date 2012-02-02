@@ -293,32 +293,10 @@ PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libOmxQcelp13Enc.so:system/lib/libOmxQcelp13Enc.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
 
-## Extra prebuilt binaries
-PRODUCT_COPY_FILES += \\
-    device/__VENDOR__/__DEVICE__/prebuilt/hw_config.sh:system/etc/hw_config.sh \\
-    device/__VENDOR__/__DEVICE__/prebuilt/FmRxService.apk:system/app/FmRxService.apk \\
-    device/__VENDOR__/__DEVICE__/prebuilt/Radio.apk:system/app/Radio.apk \\
-    device/__VENDOR__/__DEVICE__/prebuilt/SystemConnector.apk:system/app/SystemConnector.apk \\
-    device/__VENDOR__/__DEVICE__/prebuilt/com.sonyericsson.suquashi.jar:system/framework/com.sonyericsson.suquashi.jar \\
-    device/__VENDOR__/__DEVICE__/prebuilt/fmreceiverif.jar:system/framework/fmreceiverif.jar \\
-    device/__VENDOR__/__DEVICE__/prebuilt/SemcSmfmf.jar:system/framework/SemcSmfmf.jar \\
-    device/__VENDOR__/__DEVICE__/prebuilt/vold.fstab:system/etc/vold.fstab \\
-    device/__VENDOR__/__DEVICE__/placeholder:system/lib/modules/.placeholder \\
-
 ## Keyboard layouts and T9
 PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/shakira_keypad.kl:system/usr/keylayout/shakira_keypad.kl \\
     vendor/__VENDOR__/__DEVICE__/proprietary/shakira_keypad.kcm.bin:system/usr/keychars/shakira_keypad.kcm.bin \\
-
-## Themes
-PRODUCT_COPY_FILES += \\
-    device/__VENDOR__/__DEVICE__/prebuilt/MiniCM7.apk:system/app/MiniCM7.apk \\
-    device/__VENDOR__/__DEVICE__/prebuilt/OrangeHaze.apk:system/app/OrangeHaze.apk \\
-    device/__VENDOR__/__DEVICE__/prebuilt/minicm.png:system/usr/res/minicm.png
-
-## Extra Cyanogen vendor files
-PRODUCT_COPY_FILES += \\
-    vendor/cyanogen/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 EOF
 
