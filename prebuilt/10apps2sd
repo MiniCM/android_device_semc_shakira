@@ -2,12 +2,10 @@
 # Make sure the Apps2SD structure exists.
 # Originates from CM7 
 # Revised (quite heavily) 20111220 by Andrew Sutherland for Evervolv ICS.
+# Adapted for MiniCM by nobodyAtall @ xda
 
-if [ "$SD_EXT_DIRECTORY" = "" ];
-then
-    SD_EXT_DIRECTORY=/sd-ext;
-fi;
-bb="/system/xbin/busybox";
+SD_EXT_DIRECTORY=/sd-ext;
+bb="/sbin/busybox";
 logit="log -p i -t apps2sd";
 
 # make sure $SD_EXT_DIRECTORY is actually mounted
@@ -51,6 +49,7 @@ if ! awk -vDIR="$SD_EXT_DIRECTORY" '$2 == DIR { exit 1; }' /proc/mounts ; then
         done;
         $logit "Apps2SD successfully activated";
     else
+    	$bb mv /sd-ext/app/*.apk /data/app >/dev/null 2>&1
         $logit "Apps2SD flag not set...nothing to do.";
     fi;
     # end a2sd

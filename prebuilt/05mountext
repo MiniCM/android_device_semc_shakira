@@ -2,14 +2,12 @@
 #
 # mount ext partition from sd card
 # Revised 20111220 by Andrew Sutherland for apps2sd on Evervolv ICS
+# Adapted for MiniCM by nobodyAtall @ xda
 
-if [ "$SD_EXT_DIRECTORY" = "" ];
-then
-    SD_EXT_DIRECTORY=/sd-ext;
-fi;
-BB="/system/xbin/busybox";
+SD_EXT_DIRECTORY=/sd-ext;
+BB="/sbin/busybox";
 FDISK="$BB fdisk -l";
-E2FSCK="/system/bin/e2fsck";
+E2FSCK="/sbin/e2fsck";
 
 # find SD Card
 for MMC_NUM in `seq 0 9`;

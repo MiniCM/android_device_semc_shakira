@@ -40,3 +40,6 @@ else
 	/system/xbin/echo $DEFAULT > /sys/devices/virtual/bdi/179:0/read_ahead_kb
 fi
 
+KERNELVERSION=`cat /proc/version |awk {'print $3'}`
+setprop ro.kernelversion "$KERNELVERSION"
+

@@ -50,7 +50,9 @@ PRODUCT_PACKAGES += \
 
 # Extra packages
 PRODUCT_PACKAGES += \
-    ADWLauncher
+    ADWLauncher \
+    Cyanbread \
+    Androidian
 
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -193,7 +195,8 @@ PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/10apps2sd:system/etc/init.d/10apps2sd \
     device/semc/shakira/prebuilt/05mountext:system/etc/init.d/05mountext \
     device/semc/shakira/prebuilt/04modules:system/etc/init.d/04modules \
-    device/semc/shakira/prebuilt/06minicm:system/etc/init.d/06minicm
+    device/semc/shakira/prebuilt/06minicm:system/etc/init.d/06minicm \
+    device/semc/shakira/prebuilt/zipalign:system/xbin/zipalign
     
 ## Extra Cyanogen vendor files
 PRODUCT_COPY_FILES += \
