@@ -55,9 +55,7 @@ PRODUCT_PACKAGES += \
 
 # Extra packages
 PRODUCT_PACKAGES += \
-    ADWLauncher \
-    Cyanbread \
-    Androidian
+    FileManager
 
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -65,10 +63,16 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml
+    frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
@@ -120,12 +124,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     device/semc/shakira/media_profiles.xml:/system/etc/media_profiles.xml
 
-# Turn off jni checks since they break FM Radio and Skype
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.kernel.android.checkjni=0
-
 PRODUCT_COPY_FILES += \
     device/semc/shakira/placeholder:system/sd/placeholder
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.kernel.android.checkjni=0
 
 # Some more stuff:
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -152,8 +155,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-scan=true \
     media.stagefright.enable-http=true \
     keyguard.no_require_sim=true \
-    windowsmgr.max_events_per_sec=150 \
-    ro.opengles.version=65535
+    windowsmgr.max_events_per_sec=150
 
 # Increase dalvik heap size to prevent excessive GC with lots of apps installed.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -164,7 +166,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapsize=32m \
     ro.compcache.default=0 \
     dalvik.vm.checkjni=false \
-    ro.opengles.version=131072  \
+    ro.opengles.version=65535  \
     ro.compcache.default=0 \
     ro.product.locale.language=en \
     ro.product.locale.region=US \
@@ -206,12 +208,11 @@ PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/usr/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
     device/semc/shakira/prebuilt/AudioFilter.csv:system/etc/AudioFilter.csv \
     device/semc/shakira/prebuilt/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+    device/semc/shakira/prebuilt/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
     device/semc/shakira/placeholder:system/lib/modules/.placeholder
    
 ## Themes
 PRODUCT_COPY_FILES += \
-    device/semc/shakira/prebuilt/MiniCM7.apk:system/app/MiniCM7.apk \
-    device/semc/shakira/prebuilt/OrangeHaze.apk:system/app/OrangeHaze.apk \
     device/semc/shakira/prebuilt/minicm.png:system/usr/res/minicm.png
 
 ## A2SD and extra init files
@@ -226,5 +227,4 @@ PRODUCT_COPY_FILES += \
 ## Extra Cyanogen vendor files
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
-    
-    
+
