@@ -96,14 +96,21 @@ static uint32_t SND_DEVICE_TTY=-1;
 static uint32_t SND_DEVICE_HCO=-1;
 static uint32_t SND_DEVICE_VCO=-1;
 static uint32_t SND_DEVICE_CARKIT=-1;
-static uint32_t SND_DEVICE_FARFIELD_CL_FM=-1;
-static uint32_t SND_DEVICE_HEADSET_FM=-1;
 static uint32_t SND_DEVICE_NO_MIC_HEADSET=-1;
+static uint32_t SND_DEVICE_FARFIELD_OP_FM=-1;
+static uint32_t SND_DEVICE_FARFIELD_CL_FM=-1;
+static uint32_t SND_DEVICE_FARFIELD_OP_FM_LINEIN=-1;
+static uint32_t SND_DEVICE_FARFIELD_CL_FM_LINEIN=-1;
+static uint32_t SND_DEVICE_HEADSET_FM=-1;
+static uint32_t SND_DEVICE_POW_HEADSET_FM=-1;
+static uint32_t SND_DEVICE_HEADPHONE_FM=-1;
+static uint32_t SND_DEVICE_LINEOUT_FIXED_FM=-1;
+static uint32_t SND_DEVICE_DHVH_FM=-1;
 // ----------------------------------------------------------------------------
 
 AudioHardware::AudioHardware() :
     mInit(false), mMicMute(true), mBluetoothNrec(true), mBluetoothId(0),
-    mOutput(0), mSndEndpoints(NULL), mCurSndDevice(-1), mDualMicEnabled(false), mBuiltinMicSelected(false)
+    mOutput(0), mSndEndpoints(NULL), mCurSndDevice(-1), mDualMicEnabled(false), mBuiltinMicSelected(false), mFmRadioEnabled(false), mFmRadioSpeakerEnabled(false)
 {
    if (get_audpp_filter() == 0) {
            audpp_filter_inited = true;
@@ -121,7 +128,11 @@ AudioHardware::AudioHardware() :
                 ept->id = cnt;
                 ioctl(m7xsnddriverfd, SND_GET_ENDPOINT, ept);
                 LOGV("cnt = %d ept->name = %s ept->id = %d\n", cnt, ept->name, ept->id);
-#define CHECK_FOR(desc) if (!strcmp(ept->name, #desc)) SND_DEVICE_##desc = ept->id;
+#define CHECK_FOR(desc) \
+        if (!strcmp(ept->name, #desc)) { \
+            SND_DEVICE_##desc = ept->id; \
+            LOGE("BT MATCH " #desc); \
+        } else
                 CHECK_FOR(CURRENT);
                 CHECK_FOR(HANDSET_CL);
                 CHECK_FOR(FARFIELD_CL);
@@ -134,6 +145,15 @@ AudioHardware::AudioHardware() :
                 CHECK_FOR(TTY);
                 CHECK_FOR(HCO);
                 CHECK_FOR(VCO);
+                CHECK_FOR(FARFIELD_OP_FM);
+                CHECK_FOR(FARFIELD_CL_FM);
+                CHECK_FOR(FARFIELD_OP_FM_LINEIN);
+                CHECK_FOR(FARFIELD_CL_FM_LINEIN);
+                CHECK_FOR(HEADSET_FM);
+                CHECK_FOR(POW_HEADSET_FM);
+                CHECK_FOR(HEADPHONE_FM);
+                CHECK_FOR(LINEOUT_FIXED_FM);
+                CHECK_FOR(DHVH_FM);
 #undef CHECK_FOR
             }
         }
@@ -398,6 +418,33 @@ status_t AudioHardware::setParameters(const String8& keyValuePairs)
     } else {
         mTtyMode = TTY_OFF;
     }
+
+    const char FM_RADIO_ACTIVE_KEY[] = "fm_radio_active";
+    key = String8(FM_RADIO_ACTIVE_KEY);
+    if (param.get(key, value) == NO_ERROR) {
+       if (value == "on") {
+          LOGE("HOOKED ON!");
+          setFmOnOff(true);
+       }
+       else if (value == "off") {
+          LOGE("HOOKED OFF!");
+          setFmOnOff(false);
+       }
+    }
+
+    const char FM_RADIO_SPEAKER_KEY[] = "fm_radio_speaker";
+    key = String8(FM_RADIO_SPEAKER_KEY);
+    if (param.get(key, value) == NO_ERROR) {
+       if (value == "on") {
+          LOGE("SPEAKER ON!");
+          setFmSpeakerOnOff(true);
+       }
+       else if (value == "off") {
+          LOGE("SPEAKER OFF!");
+          setFmSpeakerOnOff(false);
+       }
+    }
+
     doRouting(NULL);
 
     return NO_ERROR;
@@ -1127,6 +1174,67 @@ status_t AudioHardware::setMasterVolume(float v)
     return -1;
 }
 
+/*
+ * This is a workaround to enable routing of analog audio to the headphones.
+ * There might be a cleaner way to do this.
+ */
+status_t AudioHardware::setFmOnOff(bool onoff)
+{
+    int ret;
+
+    if (onoff) {
+        mFmRadioEnabled = true;
+    } else {
+        mFmRadioEnabled = false;
+    }
+
+    return doRouting(NULL);
+}
+
+status_t AudioHardware::setFmSpeakerOnOff(bool onoff)
+{
+    int ret;
+
+    if (onoff) {
+        mFmRadioSpeakerEnabled = true;
+    } else {
+        mFmRadioSpeakerEnabled = false;
+    }
+
+    return doRouting(NULL);
+}
+
+static int logToLinear(float volume)
+{
+    // int v = volume ? 100 - int(dBConvertInverse * log(volume) + 0.5) : 0;
+    // LOGD("logTolinear(%d)=%f", v, volume);
+    // return v;
+    // change this value to change volume scaling
+    float dBPerStep = 0.5f;
+    // shouldn't need to touch these
+    float dBConvert = -dBPerStep * 2.302585093f / 20.0f;
+    float dBConvertInverse = 1.0f / dBConvert;
+    return volume ? 100 - int(dBConvertInverse * log(volume) + 0.5) : 0;
+}
+
+status_t AudioHardware::setFmVolume(float v)
+{
+    float ratio = 2.5;
+    int volume = (unsigned int)logToLinear(v) * ratio;
+
+    char volhex[10] = "";
+    sprintf(volhex, "0x%x ", volume);
+
+    char volreg[100] = "hcitool cmd 0x3f 0x135 0x1c 0x02 0x00 ";
+
+    strcat(volreg, volhex);
+
+    strcat(volreg, "0x00");
+    system(volreg);
+
+    return NO_ERROR;
+}
+
 static status_t do_route_audio_rpc(uint32_t device,
                                    bool ear_mute, bool mic_mute, int m7xsnddriverfd)
 {
@@ -1195,10 +1303,25 @@ status_t AudioHardware::doAudioRouteOrMute(uint32_t device)
         /* enable routing to earpiece (unmute) if mic is selected as input */
         mute = !mBuiltinMicSelected;
     }
+    if (device == SND_DEVICE_FARFIELD_CL_FM || device == SND_DEVICE_HEADPHONE_FM) {
+        LOGE("doAudioRouteOrMute() FOR FM device %d, mMode %d, mMicMute %d, mBuiltinMicSelected %d, %s",
+            device, mMode, mMicMute, mBuiltinMicSelected, mute ? "muted" : "audio circuit active");
+        previous_snd_device = device;
+        do_route_audio_rpc(device, 0, 1, m7xsnddriverfd);
+        return do_route_audio_rpc(device, 0, 0, m7xsnddriverfd);
+    }
 
     LOGD("doAudioRouteOrMute() device %x, mMode %d, mMicMute %d, mBuiltinMicSelected %d, %s",
         device, mMode, mMicMute, mBuiltinMicSelected, mute ? "muted" : "audio circuit active");
-    return do_route_audio_rpc(device, mute, mMicMute, m7xsnddriverfd);
+    status_t ret = do_route_audio_rpc(device, mute, mMicMute, m7xsnddriverfd);
+    if (mFmRadioEnabled) {
+        if (previous_snd_device == SND_DEVICE_FARFIELD_CL_FM || previous_snd_device == SND_DEVICE_HEADPHONE_FM) {
+            LOGD("doAudioRouteOrMute() previous_snd_device was FM: %d", previous_snd_device);
+            do_route_audio_rpc(previous_snd_device, 0, 1, m7xsnddriverfd);
+            do_route_audio_rpc(previous_snd_device, 0, 0, m7xsnddriverfd);
+        }
+    }
+    return ret;
 
 }
 
@@ -1284,19 +1407,50 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
                 new_snd_device = SND_DEVICE_FARFIELD_HEADSET;
                 new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
             } else {
-                LOGI("Routing audio to No microphone Wired Headset (%d,%x)\n", mMode, outputDevices);
-                new_snd_device = SND_DEVICE_HEADSET;
-                new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+                if (mFmRadioEnabled) {
+                    if (mFmRadioSpeakerEnabled) {
+                        LOGI("Routing FM audio to Speakerphone\n");
+                        new_snd_device = SND_DEVICE_FARFIELD_CL_FM;
+                        new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+                    }
+                    else {
+                        LOGI("Routing FM audio to No microphone Wired Headset (%d,%x)\n", mMode, outputDevices);
+                        new_snd_device = SND_DEVICE_HEADPHONE_FM;
+                        new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+                    }
+                } else {
+                    LOGI("Routing audio to No microphone Wired Headset (%d,%x)\n", mMode, outputDevices);
+                    new_snd_device = SND_DEVICE_HEADSET;
+                    new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+                }
             }
 #endif
         } else if (outputDevices & AudioSystem::DEVICE_OUT_WIRED_HEADSET) {
-            LOGI("Routing audio to Wired Headset\n");
-            new_snd_device = SND_DEVICE_HEADSET;
-            new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+            if (mFmRadioEnabled) {
+                if (mFmRadioSpeakerEnabled) {
+                    LOGI("Routing FM audio to Speakerphone\n");
+                    new_snd_device = SND_DEVICE_FARFIELD_CL_FM;
+                    new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+                }
+                else {
+                    LOGI("Routing FM audio to Wired Headset\n");
+                    new_snd_device = SND_DEVICE_HEADPHONE_FM;
+                    new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+                }
+            } else {
+                LOGI("Routing audio to Wired Headset\n");
+                new_snd_device = SND_DEVICE_HEADSET;
+                new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE); }
         } else if (outputDevices & AudioSystem::DEVICE_OUT_SPEAKER) {
-            LOGI("Routing audio to Speakerphone\n");
-            new_snd_device = SND_DEVICE_FARFIELD_CL;
-            new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+            if (mFmRadioEnabled) {
+                LOGI("Routing FM audio to Speakerphone\n");
+                new_snd_device = SND_DEVICE_FARFIELD_CL_FM;
+                new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+            } else {
+                LOGI("Routing audio to Speakerphone\n");
+                new_snd_device = SND_DEVICE_FARFIELD_CL;
+                new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE); 
+            }
         } else {
             LOGI("Routing audio to Handset\n");
             new_snd_device = SND_DEVICE_HANDSET_CL;
