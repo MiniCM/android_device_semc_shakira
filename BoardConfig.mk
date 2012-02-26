@@ -71,7 +71,7 @@ ENABLE_JSC_JIT:= false
 
 ## browser/yt fix
 JS_ENGINE := v8
-HTTP := chrome
+#HTTP := chrome
 
 ## HW ACCEL
 BOARD_USES_QCOM_HARDWARE := true

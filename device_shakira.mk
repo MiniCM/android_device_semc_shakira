@@ -71,7 +71,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-    frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/base/data/etc/android.hardware.usb.aframeworks/base/data/etc/android.hardware.sensor.compass.xmlccessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
 # Publish that we support the live wallpaper feature.
@@ -167,7 +167,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.compcache.default=0 \
     dalvik.vm.checkjni=false \
     ro.opengles.version=65535  \
-    ro.compcache.default=0 \
+    ro.compcache.default=10 \
     ro.product.locale.language=en \
     ro.product.locale.region=US \
     persist.ro.ril.sms_sync_sending=1 \
