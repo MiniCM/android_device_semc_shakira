@@ -131,7 +131,7 @@ AudioHardware::AudioHardware() :
 #define CHECK_FOR(desc) \
         if (!strcmp(ept->name, #desc)) { \
             SND_DEVICE_##desc = ept->id; \
-            LOGE("BT MATCH " #desc); \
+            LOGV("BT MATCH " #desc); \
         } else
                 CHECK_FOR(CURRENT);
                 CHECK_FOR(HANDSET_CL);
