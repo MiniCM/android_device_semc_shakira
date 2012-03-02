@@ -87,13 +87,6 @@ fi
     ${ACTION}/system/lib/hw/hal_seport.default.so ../../../vendor/$VENDOR/$DEVICE/proprietary/hal_seport.default.so
     ${ACTION}/system/lib/libsystemconnector/libuinputdevicejni.so ../../../vendor/$VENDOR/$DEVICE/proprietary
     ${ACTION}/system/lib/libsystemconnector_hal_jni.so ../../../vendor/$VENDOR/$DEVICE/proprietary
-    
-## Adreno 200 files
-#    ${ACTION}/system/lib/libgsl.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libgsl.so
-#    ${ACTION}/system/lib/egl/libEGL_adreno200.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libEGL_adreno200.so
-#    ${ACTION}/system/lib/egl/libGLESv1_CM_adreno200.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libGLESv1_CM_adreno200.so
-#    ${ACTION}/system/lib/egl/libGLESv2_adreno200.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libGLESv2_adreno200.so
-#    ${ACTION}/system/lib/egl/libq3dtools_adreno200.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libq3dtools_adreno200.so
 
 ## Camera
     ${ACTION}/system/lib/libcamera.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libcamera.so
@@ -107,10 +100,7 @@ fi
     ${ACTION}/system/lib/libopencore_common.so ../../../vendor/$VENDOR/$DEVICE/proprietary
     
 ## Audio
-    #${ACTION}/system/etc/AudioFilterPlatform.csv ../../../vendor/$VENDOR/$DEVICE/proprietary/AudioFilterPlatform.csv
-    #${ACTION}/system/etc/AudioFilterProduct.csv ../../../vendor/$VENDOR/$DEVICE/proprietary/AudioFilterProduct.csv
     ${ACTION}/system/lib/libaudioeq.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libaudioeq.so
-    #${ACTION}/system/lib/libaudio.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libaudio.so
 
 ## OMX proprietaries
     ${ACTION}/system/lib/libmm-adspsvc.so ../../../vendor/$VENDOR/$DEVICE/proprietary
@@ -214,12 +204,10 @@ PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/com.ti.fm.fmreceiverif.xml:system/etc/permissions/com.ti.fm.fmreceiverif.xml \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libfm_stack.so:system/lib/libfm_stack.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libfmrx.so:system/lib/libfmrx.so \\
-    device/__VENDOR__/__DEVICE__/prebuilt/AntHalService.apk:system/app/AntHalService.apk \\
     vendor/__VENDOR__/__DEVICE__/proprietary/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml \\
     vendor/__VENDOR__/__DEVICE__/proprietary/com.dsi.ant.antradio_library.jar:system/framework/com.dsi.ant.antradio_library.jar \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libanthal.so:system/lib/libanthal.so
 
-  
 ## HW and sensors
 PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/sensors.conf:system/etc/sensors.conf \\
@@ -227,14 +215,6 @@ PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/hal_seport.default.so:system/lib/hw/hal_seport.default.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libuinputdevicejni.so:system/lib/libsystemconnector/libuinputdevicejni.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libsystemconnector_hal_jni.so:system/lib/libsystemconnector_hal_jni.so
-
-## Adreno 200 files
-PRODUCT_COPY_FILES += \\
-    device/__VENDOR__/__DEVICE__/prebuilt/libgsl.so:system/lib/libgsl.so \\
-    device/__VENDOR__/__DEVICE__/prebuilt/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \\
-    device/__VENDOR__/__DEVICE__/prebuilt/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \\
-    device/__VENDOR__/__DEVICE__/prebuilt/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \\
-    device/__VENDOR__/__DEVICE__/prebuilt/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so
     
 ## Camera    
 PRODUCT_COPY_FILES += \\
@@ -251,18 +231,6 @@ PRODUCT_COPY_FILES += \\
 ## Audio
 PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libaudioeq.so:system/lib/libaudioeq.so
-
-## Hotspot
-PRODUCT_COPY_FILES += \
-    device/__VENDOR__/__DEVICE__/prebuilt/tiap_loader.sh:system/bin/tiap_loader.sh \\
-    device/__VENDOR__/__DEVICE__/prebuilt/10dnsconf:system/etc/init.d/10dnsconf \\
-    device/__VENDOR__/__DEVICE__/prebuilt/10hostapconf:system/etc/init.d/10hostapconf \\
-    device/__VENDOR__/__DEVICE__/prebuilt/hostapd.conf:system/etc/wifi/softap/hostapd.conf \\
-    device/__VENDOR__/__DEVICE__/prebuilt/dnsmasq.conf:system/etc/wifi/dnsmasq.conf \\
-    device/__VENDOR__/__DEVICE__/prebuilt/tiwlan.ini:system/etc/wifi/tiwlan.ini \\
-    device/__VENDOR__/__DEVICE__/prebuilt/tiwlan_ap.ini:system/etc/wifi/softap/tiwlan_ap.ini \\
-    device/__VENDOR__/__DEVICE__/prebuilt/tiwlan_firmware.bin:system/etc/wifi/tiwlan_firmware.bin \\
-    device/__VENDOR__/__DEVICE__/prebuilt/tiwlan_firmware_ap.bin:system/etc/wifi/softap/tiwlan_firmware_ap.bin 
 
 ## OMX proprietaries
 PRODUCT_COPY_FILES += \\
