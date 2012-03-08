@@ -16,7 +16,6 @@ fi
     ${ACTION}/system/bin/akmd2 ../../../vendor/$VENDOR/$DEVICE/proprietary
     ${ACTION}/system/bin/mm-venc-omx-test ../../../vendor/$VENDOR/$DEVICE/proprietary
     ${ACTION}/system/etc/01_qcomm_omx.cfg ../../../vendor/$VENDOR/$DEVICE/proprietary
-    ${ACTION}/system/bin/hciattach ../../../vendor/$VENDOR/$DEVICE/proprietary
     ${ACTION}/system/bin/nvimport ../../../vendor/$VENDOR/$DEVICE/proprietary
     ${ACTION}/system/lib/libZiEngine.so ../../../vendor/$VENDOR/$DEVICE/proprietary
     ${ACTION}/system/usr/keylayout/shakira_keypad.kl ../../../vendor/$VENDOR/$DEVICE/proprietary
@@ -74,9 +73,7 @@ fi
 ## FM Radio and ANT
     ${ACTION}/system/etc/permissions/com.sonyericsson.smfmf.xml ../../../vendor/$VENDOR/$DEVICE/proprietary/com.sonyericsson.smfmf.xml
     ${ACTION}/system/etc/permissions/com.sonyericsson.suquashi.xml ../../../vendor/$VENDOR/$DEVICE/proprietary/com.sonyericsson.suquashi.xml
-    ${ACTION}/system/etc/permissions/com.ti.fm.fmreceiverif.xml ../../../vendor/$VENDOR/$DEVICE/proprietary/com.ti.fm.fmreceiverif.xml
     ${ACTION}/system/lib/libfm_stack.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libfm_stack.so
-    ${ACTION}/system/lib/libfmrx.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libfmrx.so
     ${ACTION}/system/etc/permissions/com.dsi.ant.antradio_library.xml ../../../vendor/$VENDOR/$DEVICE/proprietary
     ${ACTION}/system/framework/com.dsi.ant.antradio_library.jar ../../../vendor/$VENDOR/$DEVICE/proprietary
     ${ACTION}/system/lib/libanthal.so ../../../vendor/$VENDOR/$DEVICE/proprietary
@@ -141,7 +138,6 @@ fi
 PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/akmd2:system/bin/akmd2 \\
     vendor/__VENDOR__/__DEVICE__/proprietary/mm-venc-omx-test:system/bin/mm-venc-omx-test \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/hciattach:system/bin/hciattach \\
     vendor/__VENDOR__/__DEVICE__/proprietary/nvimport:system/bin/nvimport \\
     vendor/__VENDOR__/__DEVICE__/proprietary/01_qcomm_omx.cfg:system/etc/01_qcomm_omx.cfg
     
@@ -201,9 +197,7 @@ PRODUCT_COPY_FILES += \\
 PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/com.sonyericsson.smfmf.xml:system/etc/permissions/com.sonyericsson.smfmf.xml \\
     vendor/__VENDOR__/__DEVICE__/proprietary/com.sonyericsson.suquashi.xml:system/etc/permissions/com.sonyericsson.suquashi.xml \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/com.ti.fm.fmreceiverif.xml:system/etc/permissions/com.ti.fm.fmreceiverif.xml \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libfm_stack.so:system/lib/libfm_stack.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/libfmrx.so:system/lib/libfmrx.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml \\
     vendor/__VENDOR__/__DEVICE__/proprietary/com.dsi.ant.antradio_library.jar:system/framework/com.dsi.ant.antradio_library.jar \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libanthal.so:system/lib/libanthal.so
