@@ -43,6 +43,11 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/hw_config.sh:system/etc/hw_config.sh
 
+# Wifi firmware
+PRODUCT_COPY_FILES += \
+    device/semc/shakira/prebuilt/tiwlan.ini:system/etc/wifi/tiwlan.ini \
+    device/semc/shakira/prebuilt/tiwlan_ap.ini:system/etc/wifi/softap/tiwlan_ap.ini
+
 # Themes
 PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/minicm.png:system/usr/res/minicm.png \
