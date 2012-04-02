@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The AOSP edited by Paul
+<!-- Copyright (C) 2010 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -73,24 +73,24 @@
 ]>
 
 <MediaSettings>
-    <CamcorderProfiles>
+    <CamcorderProfiles cameraId="0">
 
         <EncoderProfile quality="high" fileFormat="mp4" duration="60">
-            <Video codec="m4v"
-                   bitRate="40000000"
+            <Video codec="h264"
+                   bitRate="2500000"
                    width="640"
                    height="480"
                    frameRate="30" />
 
             <Audio codec="aac"
-                   bitRate="320000"
+                   bitRate="128000"
                    sampleRate="48000"
                    channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="low" fileFormat="3gp" duration="30">
-            <Video codec="m4v"
-                   bitRate="256000"
+            <Video codec="h263"
+                   bitRate="70500"
                    width="176"
                    height="144"
                    frameRate="15" />
@@ -103,35 +103,36 @@
         </EncoderProfile>
 
         <ImageEncoding quality="99" />
-        <ImageEncoding quality="80" />
-        <ImageEncoding quality="70" />
-        <ImageDecoding memCap="20000000" />
+        <ImageEncoding quality="99" />
+        <ImageEncoding quality="99" />
+        <ImageDecoding memCap="80000000" />
 
         <Camera previewFrameRate="0" />
 
     </CamcorderProfiles>
 
-
     <EncoderOutputFileFormat name="3gp" />
     <EncoderOutputFileFormat name="mp4" />
 
-    <VideoEncoderCap name="h263" enabled="true"
-        minBitRate="64000" maxBitRate="1600000"
-        minFrameWidth="176" maxFrameWidth="640"
-        minFrameHeight="144" maxFrameHeight="480"
-        minFrameRate="1" maxFrameRate="30" />
+    <VideoEncoderCap name="h264" enabled="true"
+        minBitRate="2500000" maxBitRate="2500000"
+        minFrameWidth="640" maxFrameWidth="640"
+        minFrameHeight="480" maxFrameHeight="480"
+        minFrameRate="30" maxFrameRate="30" />
 
-    <VideoEncoderCap name="m4v" enabled="true"
-        minBitRate="64000" maxBitRate="40000000"
-        minFrameWidth="176" maxFrameWidth="640"
-        minFrameHeight="144" maxFrameHeight="480"
-        minFrameRate="1" maxFrameRate="30" />
+    <VideoEncoderCap name="h263" enabled="true"
+        minBitRate="70500" maxBitRate="70500"
+        minFrameWidth="176" maxFrameWidth="176"
+        minFrameHeight="144" maxFrameHeight="144"
+        minFrameRate="15" maxFrameRate="15" />
 		
-	<AudioEncoderCap name="aac" enabled="true"
-        minBitRate="5525" maxBitRate="320000"
-        minSampleRate="8000" maxSampleRate="48000"
+    <AudioEncoderCap name="aac" enabled="true"
+        minBitRate="128000" maxBitRate="128000"
+        minSampleRate="48000" maxSampleRate="48000"
         minChannels="1" maxChannels="1" />
 
-    <VideoDecoderCap name="wmv" enabled="true"/>
-    <AudioDecoderCap name="wma" enabled="true"/>
+    <AudioEncoderCap name="amrnb" enabled="true"
+        minBitRate="12200" maxBitRate="12200"
+        minSampleRate="8000" maxSampleRate="8000"
+        minChannels="1" maxChannels="1" />
 </MediaSettings>

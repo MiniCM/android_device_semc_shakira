@@ -53,3 +53,7 @@ PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/minicm.png:system/usr/res/minicm.png \
 	device/semc/shakira/prebuilt/bootanimation.zip:system/media/bootanimation.zip
 
+# Cypress touchsceen
+PRODUCT_COPY_FILES += \
+    device/semc/msm7x27-common/prebuilt/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
+
