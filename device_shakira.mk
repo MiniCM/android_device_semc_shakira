@@ -62,8 +62,11 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml
+    frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
@@ -126,6 +129,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.networklocation=1 \
     ro.ril.enable.a52=1 \
     ro.ril.enable.a53=1 \
+    ro.telephony.ril.v3=skipbrokendatacall,signalstrength,datacall \
     ro.media.enc.file.format       = 3gp,mp4 \
     ro.media.enc.vid.codec         = m4v,h263 \
     ro.media.enc.vid.h263.width    = 176,640 \
@@ -145,14 +149,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-http=true \
     keyguard.no_require_sim=true \
     windowsmgr.max_events_per_sec=150 \
-    ro.opengles.version=131072
+    ro.opengles.version=131072 \
+    persist.sys.scrollingcache=2
 
 # Increase dalvik heap size to prevent excessive GC with lots of apps installed.
 PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dexopt-flags=m=y \
+    dalvik.vm.lockprof.threshold=500 \
     dalvik.vm.execution-mode=int:jit \
     dalvik.vm.heapsize=32m \
-    ro.compcache.default=0
-    
+    ro.compcache.default=10 \
+    ro.product.locale.region=US \
+    persist.ro.ril.sms_sync_sending=1 \
+    net.bt.name=Android-MiniCM7
+
 # Enable ti hotspot
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.hotspot.ti=1
@@ -181,13 +191,15 @@ PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/fmreceiverif.jar:system/framework/fmreceiverif.jar \
     device/semc/shakira/prebuilt/SemcSmfmf.jar:system/framework/SemcSmfmf.jar \
     device/semc/shakira/prebuilt/vold.fstab:system/etc/vold.fstab \
+    device/semc/shakira/prebuilt/usr/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
     device/semc/shakira/placeholder:system/lib/modules/.placeholder
    
 ## Themes
 PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/MiniCM7.apk:system/app/MiniCM7.apk \
     device/semc/shakira/prebuilt/OrangeHaze.apk:system/app/OrangeHaze.apk \
-    device/semc/shakira/prebuilt/minicm.png:system/usr/res/minicm.png
+    device/semc/shakira/prebuilt/minicm.png:system/usr/res/minicm.png \
+    device/semc/shakira/prebuilt/bootanimation.zip:/system/media/bootanimation.zip
 
 ## A2SD and extra init files
 PRODUCT_COPY_FILES += \
@@ -201,6 +213,3 @@ PRODUCT_COPY_FILES += \
 ## Extra Cyanogen vendor files
 PRODUCT_COPY_FILES += \
     vendor/cyanogen/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
-    
-    
-

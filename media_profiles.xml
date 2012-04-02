@@ -71,32 +71,28 @@
 <!ATTLIST AudioDecoderCap name (wma) #REQUIRED>
 <!ATTLIST AudioDecoderCap enabled (true|false) #REQUIRED>
 ]>
-<!--
-     This file is used to declare the multimedia profiles and capabilities
-     on an android-powered device.
--->
+
 <MediaSettings>
-    <!-- Each camcorder profile defines a set of predefined configuration parameters -->
     <CamcorderProfiles>
 
-        <EncoderProfile quality="high" fileFormat="3gp" duration="60">
-            <Video codec="h263"
-                   bitRate="1600000"
+        <EncoderProfile quality="high" fileFormat="mp4" duration="60">
+            <Video codec="h264"
+                   bitRate="2500000"
                    width="640"
                    height="480"
                    frameRate="30" />
 
-            <Audio codec="amrnb"
-                   bitRate="12200"
-                   sampleRate="8000"
+            <Audio codec="aac"
+                   bitRate="128000"
+                   sampleRate="48000"
                    channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="low" fileFormat="3gp" duration="30">
-            <Video codec="m4v"
-                   bitRate="256000"
-                   width="320"
-                   height="240"
+            <Video codec="h263"
+                   bitRate="70500"
+                   width="176"
+                   height="144"
                    frameRate="15" />
 
             <Audio codec="amrnb"
@@ -106,48 +102,37 @@
 
         </EncoderProfile>
 
-        <ImageEncoding quality="90" />
-        <ImageEncoding quality="80" />
-        <ImageEncoding quality="70" />
-        <ImageDecoding memCap="20000000" />
+        <ImageEncoding quality="99" />
+        <ImageEncoding quality="99" />
+        <ImageEncoding quality="99" />
+        <ImageDecoding memCap="80000000" />
 
         <Camera previewFrameRate="0" />
 
     </CamcorderProfiles>
 
-
     <EncoderOutputFileFormat name="3gp" />
     <EncoderOutputFileFormat name="mp4" />
 
-    <!--
-         If a codec is not enabled, it is invisible to the applications
-         In other words, the applications won't be able to use the codec
-         or query the capabilities of the codec at all if it is disabled
-    -->
+    <VideoEncoderCap name="h264" enabled="true"
+        minBitRate="2500000" maxBitRate="2500000"
+        minFrameWidth="640" maxFrameWidth="640"
+        minFrameHeight="480" maxFrameHeight="480"
+        minFrameRate="30" maxFrameRate="30" />
+
     <VideoEncoderCap name="h263" enabled="true"
-        minBitRate="64000" maxBitRate="1600000"
-        minFrameWidth="176" maxFrameWidth="640"
-        minFrameHeight="144" maxFrameHeight="480"
-        minFrameRate="1" maxFrameRate="30" />
-
-    <VideoEncoderCap name="m4v" enabled="true"
-        minBitRate="64000" maxBitRate="1600000"
-        minFrameWidth="176" maxFrameWidth="640"
-        minFrameHeight="144" maxFrameHeight="480"
-        minFrameRate="1" maxFrameRate="30" />
-
-    <AudioEncoderCap name="amrnb" enabled="true"
-        minBitRate="5525" maxBitRate="12200"
-        minSampleRate="8000" maxSampleRate="8000"
+        minBitRate="70500" maxBitRate="70500"
+        minFrameWidth="176" maxFrameWidth="176"
+        minFrameHeight="144" maxFrameHeight="144"
+        minFrameRate="15" maxFrameRate="15" />
+		
+    <AudioEncoderCap name="aac" enabled="true"
+        minBitRate="128000" maxBitRate="128000"
+        minSampleRate="48000" maxSampleRate="48000"
         minChannels="1" maxChannels="1" />
 
-    <!--
-        FIXME:
-        We do not check decoder capabilities at present
-        At present, we only check whether windows media is visible
-        for TEST applications. For other applications, we do
-        not perform any checks at all.
-    -->
-    <VideoDecoderCap name="wmv" enabled="true"/>
-    <AudioDecoderCap name="wma" enabled="true"/>
+    <AudioEncoderCap name="amrnb" enabled="true"
+        minBitRate="12200" maxBitRate="12200"
+        minSampleRate="8000" maxSampleRate="8000"
+        minChannels="1" maxChannels="1" />
 </MediaSettings>
