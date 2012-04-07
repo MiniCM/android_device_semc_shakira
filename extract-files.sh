@@ -84,7 +84,6 @@ fi
     ${ACTION}/system/lib/libsystemconnector_hal_jni.so ../../../vendor/$VENDOR/$DEVICE/proprietary
 
 ## Camera
-    ${ACTION}/system/lib/libcamera.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libcamera.so
     ${ACTION}/system/lib/liboemcamera.so ../../../vendor/$VENDOR/$DEVICE/proprietary/liboemcamera.so
     ${ACTION}/system/lib/libmmipl.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libmmipl.so
     ${ACTION}/system/lib/libmmjpeg.so ../../../vendor/$VENDOR/$DEVICE/proprietary/libmmjpeg.so
@@ -209,7 +208,6 @@ PRODUCT_COPY_FILES += \\
 ## Camera    
 PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/liboemcamera.so:system/lib/liboemcamera.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/libcamera.so:system/lib/libcamera.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libmmipl.so:system/lib/libmmipl.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libmmjpeg.so:system/lib/libmmjpeg.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/libfacedetect.so:system/lib/libfacedetect.so \\
@@ -245,7 +243,7 @@ PRODUCT_COPY_FILES += \\
 ## Keyboard layouts and T9
 PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/shakira_keypad.kl:system/usr/keylayout/shakira_keypad.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/shakira_keypad.kcm.bin:system/usr/keychars/shakira_keypad.kcm.bin \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/shakira_keypad.kcm.bin:system/usr/keychars/shakira_keypad.kcm.bin
 
 EOF
 

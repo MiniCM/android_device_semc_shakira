@@ -26,7 +26,7 @@ PRODUCT_COPY_FILES += \
 # application settings that are stored in resourced.    
 DEVICE_PACKAGE_OVERLAYS := device/semc/shakira/overlay
 
-# Gps sensors lights and audio
+# Sensors lights
 PRODUCT_PACKAGES += \
     sensors.shakira \
     lights.shakira
@@ -53,7 +53,8 @@ PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/minicm.png:system/usr/res/minicm.png \
 	device/semc/shakira/prebuilt/bootanimation.zip:system/media/bootanimation.zip
 
-# Cypress touchsceen
+# Touchsceen
 PRODUCT_COPY_FILES += \
-    device/semc/msm7x27-common/prebuilt/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
+    device/semc/msm7x27-common/prebuilt/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
+    device/semc/msm7x27-common/prebuilt/cyttsp-spi.idc:system/usr/idc/cyttsp-spi.idc
 
