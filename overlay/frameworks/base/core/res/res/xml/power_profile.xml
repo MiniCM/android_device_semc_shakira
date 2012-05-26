@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 **
-** Copyright 2011, The Android Open Source Project
+** Copyright 2009, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License")
 ** you may not use this file except in compliance with the License.
@@ -18,42 +18,66 @@
 -->
 
 <device name="Android">
-  <!-- All values are in mA except as noted -->
+  <!-- All values are in mAh except as noted -->
   <item name="none">0</item>
-  <item name="screen.on">200</item> <!-- min brite -->
-  <item name="bluetooth.active">150</item>
-  <item name="bluetooth.on">1</item>
-  <item name="bluetooth.at">1</item> <!-- TBD -->
-  <item name="screen.full">160</item> <!-- 360 max on calendar -->
-  <item name="wifi.on">1</item>
-  <item name="wifi.active">150</item>
-  <item name="wifi.scan">200</item>
-  <item name="dsp.audio">150</item>
-  <item name="dsp.video">200</item>
-  <item name="radio.active">150</item>
-  <item name="gps.on">55</item>
-  <item name="battery.capacity">1750</item>
-  <item name="radio.scanning">90</item> <!-- TBD -->
-  <!-- Current consumed by the radio at different signal strengths, when paging  -->
-   <array name="radio.on"> <!-- 1 entry per signal strength bin, TBD -->
-      <value>3.0</value>
-      <value>3.0</value>
+  <item name="screen.on">100</item>
+  <item name="bluetooth.active">142</item>
+  <item name="bluetooth.on">0.3</item>
+  <!-- CPU wakelock held for 830ms on bluetooth headset at command.
+       43mA * 830 -->
+  <item name="bluetooth.at">35690</item>
+  <item name="screen.full">160</item>
+  <item name="wifi.on">4</item>
+  <item name="wifi.active">120</item>
+  <item name="wifi.scan">220</item>
+  <item name="dsp.audio">106</item> <!-- Estimated -->
+  <item name="dsp.video">106</item> <!-- Estimated -->
+  <item name="radio.active">300</item>
+  <!-- The current consumed by the radio when it is scanning for a signal -->
+  <item name="radio.scanning">70</item>
+  <item name="gps.on">170</item>
+  <!-- Current consumed by the radio at different signal strengths, when paging -->
+  <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
+      <value>3</value>
+      <value>3</value>
   </array>
+  <!-- Different CPU speeds as reported in
+       /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state -->
   <array name="cpu.speeds">
-    <value>350000</value>
-    <value>700000</value>
-    <value>920000</value>
-    <value>1200000</value>
+      <value>19000</value>
+      <value>122880</value>
+      <value>200000</value>
+      <value>245760</value>
+      <value>320000</value>
+      <value>400000</value>
+      <value>480000</value>
+      <value>600000</value>
+      <value>768000</value>
+      <value>787200</value>
+      <value>806400</value>
+      <value>825600</value>
+      <value>844800</value>
+      <value>864000</value>
   </array>
-  <!-- Power consumption in suspend -->
-  <item name="cpu.idle">7</item>
-  <!-- Power consumption due to wake lock held -->
-  <item name="cpu.awake">20</item>
+  <!-- Power consumption when CPU is idle -->
+  <item name="cpu.idle">3.0</item>
   <!-- Power consumption at different speeds -->
-  <array name="cpu.active">
-      <value>120</value>
-      <value>228</value>
-      <value>299</value>
-      <value>397</value>
+  <array name="cpu.active"> <!-- Estimated -->
+      <value>5</value>  <!-- 19000 -->
+      <value>32</value>  <!-- 122880 -->
+      <value>45</value>  <!-- 200000 -->
+      <value>60</value>  <!-- 245760 -->
+      <value>74</value>  <!-- 320000 -->
+      <value>88</value>  <!-- 400000 -->
+      <value>100</value> <!-- 480000 -->
+      <value>120</value> <!-- 600000 -->
+      <value>160</value> <!-- 768000 -->
+      <value>170</value> <!-- 787200 -->
+      <value>180</value> <!-- 806400 -->
+      <value>190</value> <!-- 825600 -->
+      <value>200</value> <!-- 844800 -->
+      <value>210</value> <!-- 864000 -->
   </array>
+  <!-- This is the battery capacity in mAh -->
+  <item name="battery.capacity">1230</item>
 </device>
