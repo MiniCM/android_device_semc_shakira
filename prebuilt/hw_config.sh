@@ -21,7 +21,7 @@ dev=/sys/devices/platform/proximity-sensor/semc/proximity-sensor
 echo  15 > $dev/led_on_ms         # sensor LED on time in ms
 echo  35 > $dev/led_off_ms       # sensor LED off time in ms
 
-echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo "smartassV2" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo 90 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold
 echo 30 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/down_differential
 echo 500000 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate
