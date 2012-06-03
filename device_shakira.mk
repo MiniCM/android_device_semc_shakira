@@ -3,7 +3,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 # proprietary side of the device
-$(call inherit-product-if-exists, vendor/semc/shakira/device_shakira-vendor.mk)
+$(call inherit-product-if-exists, vendor/semc/shakira/shakira-vendor.mk)
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := E15i
@@ -44,8 +44,7 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Extra prebuilt binaries
 PRODUCT_COPY_FILES += \
-    device/semc/shakira/prebuilt/hw_config.sh:system/etc/hw_config.sh \
-    vendor/semc/shakira/proprietary/libcamera.so:obj/lib/libcamera.so
+    device/semc/shakira/prebuilt/hw_config.sh:system/etc/hw_config.sh
 
 # Wifi firmware
 PRODUCT_COPY_FILES += \
