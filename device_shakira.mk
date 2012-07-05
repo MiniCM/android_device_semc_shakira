@@ -34,6 +34,10 @@ PRODUCT_PACKAGES += \
     sensors.shakira \
     lights.shakira
 
+# Shakira has working copybit too
+PRODUCT_PACKAGES += \
+    copybit.msm7x27
+
 # media configuration xml file
 PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/media_profiles.xml:/system/etc/media_profiles.xml
