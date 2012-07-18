@@ -64,7 +64,7 @@ int ProximitySensor::setInitialState() {
 }
 
 int ProximitySensor::enable(int32_t, int en) {
-	//LOGE("ProximitySensor::enable with %d", en);
+	//ALOGE("ProximitySensor::enable with %d", en);
 	int newState = en ? 1 : 0;
 	if (newState != mEnabled) {
 	FILE * fd;
@@ -79,12 +79,12 @@ int ProximitySensor::enable(int32_t, int en) {
 			buf[0] = '0';
 		}
 		int ret = fputs(buf, fd);
-		//LOGE("ProximitySensor wrote %s to %s, status:%d", buf, input_sysfs_path, ret);
+		//ALOGE("ProximitySensor wrote %s to %s, status:%d", buf, input_sysfs_path, ret);
 		fclose(fd);
 		mEnabled = newState;
 		return 0;
 	}
-	LOGE("ProximitySensor couldn't open %s", input_sysfs_path);
+	ALOGE("ProximitySensor couldn't open %s", input_sysfs_path);
 	return -1;
 	}
 	return 0;
@@ -127,7 +127,7 @@ int ProximitySensor::readEvents(sensors_event_t* data, int count)
                 numEventReceived++;
             }
         } else {
-            LOGE("ProximitySensor: unknown event (type=%d, code=%d)",
+            ALOGE("ProximitySensor: unknown event (type=%d, code=%d)",
                     type, event->code);
         }
         mInputReader.next();

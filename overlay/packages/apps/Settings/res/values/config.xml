@@ -5,6 +5,6 @@
     <bool name="has_led_flash">false</bool>
 
     <!-- Undervolting module -->
-    <string name="undervolting_module">x8uv.ko</string>
+    <!-- <string name="undervolting_module">x8uv.ko</string> -->
 
 </resources>
