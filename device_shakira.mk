@@ -29,15 +29,6 @@ DEVICE_PACKAGE_OVERLAYS := device/semc/shakira/overlay
 
 -include device/semc/msm7x27-common/msm7x27.mk
 
-# Sensors lights
-PRODUCT_PACKAGES += \
-    sensors.shakira \
-    lights.shakira
-
-# Shakira has working copybit too
-PRODUCT_PACKAGES += \
-    copybit.msm7x27
-
 # media configuration xml file
 PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/media_profiles.xml:/system/etc/media_profiles.xml
@@ -64,4 +55,3 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
     device/semc/msm7x27-common/prebuilt/cyttsp-spi.idc:system/usr/idc/cyttsp-spi.idc
-
