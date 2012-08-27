@@ -37,10 +37,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
-# Extra prebuilt binaries
-PRODUCT_COPY_FILES += \
-    device/semc/shakira/prebuilt/hw_config.sh:system/etc/hw_config.sh
-
 # Wifi firmware
 PRODUCT_COPY_FILES += \
     device/semc/shakira/prebuilt/tiwlan.ini:system/etc/wifi/tiwlan.ini \
