@@ -42,7 +42,6 @@ etc/firmware/fm_tx_init_1273.1.bts
 etc/firmware/fm_tx_init_1273.2.bts
 etc/firmware/fmc_init_1273.1.bts
 etc/firmware/fmc_init_1273.2.bts
-etc/firmware/TIInit_7.2.31.bts
 
 ## Offline charging
 bin/chargemon
