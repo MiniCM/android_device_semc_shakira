@@ -26,7 +26,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <pthread.h>
-
+#include <string.h>
 #include <sys/ioctl.h>
 #include <sys/types.h>
 
@@ -53,10 +53,13 @@ char const*const PWM_FILE        = "/sys/devices/virtual/misc/rgb_led/rgb_led/pw
 char const*const BLINK_FILE      = "/sys/devices/virtual/misc/rgb_led/rgb_led/blink";
 char const*const POWER_FILE      = "/sys/devices/virtual/misc/rgb_led/rgb_led/power";
 
-static int LCD_FILE = "/sys/devices/platform/i2c-adapter/i2c-0/0-0036/br::intensity";
+char const*const LCD_FILE_PATH1 = "/sys/devices/platform/i2c-adapter/i2c-0/0-0036/br::intensity";
+char const*const LCD_FILE_PATH2 = "/sys/devices/i2c-0/0-0036/br::intensity";
+char * LCD_FILE;
 
-char const*const ALS_FILE = "/sys/devices/platform/i2c-adapter/i2c-0/0-0036/mode";
-
+char const*const ALS_FILE_PATH1 = "/sys/devices/platform/i2c-adapter/i2c-0/0-0036/mode";
+char const*const ALS_FILE_PATH2 = "/sys/devices/i2c-0/0-0036/mode";
+char * ALS_FILE;
 
 char const*const BUTTON_FILE     = "";
 
@@ -273,6 +276,21 @@ close_lights(struct light_device_t *dev)
 static int open_lights(const struct hw_module_t* module, char const* name,
         struct hw_device_t** device)
 {
+    /* Find out the correct paths for LCD_FILE and ALS_FILE */
+    int fd;
+    fd = open(LCD_FILE_PATH1, O_RDWR);
+    if (fd >= 0) {
+        LCD_FILE = strdup(LCD_FILE_PATH1);
+    } else {
+        LCD_FILE = strdup(LCD_FILE_PATH2);
+    }
+    fd = open(ALS_FILE_PATH1, O_RDWR);
+    if (fd >= 0) {
+        ALS_FILE = strdup(ALS_FILE_PATH1);
+    } else {
+        ALS_FILE = strdup(ALS_FILE_PATH2);
+    }
+
     int (*set_light)(struct light_device_t* dev,
             struct light_state_t const* state);
 
