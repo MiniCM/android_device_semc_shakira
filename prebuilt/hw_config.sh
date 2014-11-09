@@ -1,6 +1,6 @@
 # Vibrator configuration
 dev=/sys/devices/platform/msm_pmic_vibrator
-echo 2400 > $dev/voltage_mv
+echo 2800 > $dev/voltage_mv
 
 # lm3530 LMU configuration
 dev=/sys/devices/platform/i2c-adapter/i2c-0/0-0036
@@ -18,8 +18,8 @@ echo i2c_pwm_als > $dev/mode    # i2c, pwm, i2c_pwm, als, pwm_als, i2c_pwm_als, 
 
 # Proximity sensor configuration
 dev=/sys/devices/platform/proximity-sensor/semc/proximity-sensor
-echo  15 > $dev/led_on_ms         # sensor LED on time in ms
-echo  35 > $dev/led_off_ms       # sensor LED off time in ms
+echo  20 > $dev/led_on_ms         # sensor LED on time in ms
+echo  45 > $dev/led_off_ms       # sensor LED off time in ms
 
 echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo 90 > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold
